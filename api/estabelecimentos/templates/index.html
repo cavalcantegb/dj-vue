@@ -108,7 +108,7 @@
         },
         methods: {
           getEstabelecimentos: function() {
-            let api_url = '/api/estabelecimento/';
+            let api_url = `/api/estabelecimento/`;
             if(this.search_term!==''||this.search_term!==null) {
               api_url = '/api/estabelecimento/?search=${this.search_term}'
             }
@@ -121,7 +121,7 @@
                 })
           },
           getEstabelecimento: function(id) {
-            let api_url = '/api/estabelecimento/${id}';
+            let api_url = `/api/estabelecimento/${id}/`;
             this.$http.get(api_url)
             .then((response) => {
                 this.atualEstabelecimento = response.data;
@@ -130,10 +130,9 @@
               .catch((err) => {
                 console.log(err);
               })
-            }
           },
-          addArticle: function() {
-            this.$http.post('/api/estabelecimento/',this.newEstabelecimento)
+          addEstabelecimento: function() {
+            this.$http.post(`/api/estabelecimento/`,this.newEstabelecimento)
               .then((response) => {
                 this.getEstabelecimentos();
               })
@@ -141,17 +140,17 @@
                 console.log(err);
               })
           },
-          updateArticle: function() {
-            this.$http.put('/api/estabelecimento/${this.atualEstabelecimento.id}/', this.atualEstabelecimento)
-                .then((response) => {
-                  this.atualEstabelecimento = response.data;
-                  this.getEstabelecimentos();
-                })
-                .catch((err) => {
-                  console.log(err);
-                })
-          },
-        }
+          updateEstabelecimento: function() {
+            this.$http.put(`/api/estabelecimento/${this.atualEstabelecimento.id}/`, this.atualEstabelecimento)
+              .then((response) => {
+                this.atualEstabelecimento = response.data;
+                this.getEstabelecimentos();
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+          }        
+        }  
       })
     </script>
   </body>
