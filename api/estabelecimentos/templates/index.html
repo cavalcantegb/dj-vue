@@ -30,7 +30,7 @@
                 <td>${estabelecimento.endereco}</td> 
                 <td>
                   <button class="btn-info" v-on:click="getEstabelecimento(estabelecimento.id)">Edit</button>
-                  <button class="btn-danger">Delete</button> 
+                  <button class="btn-danger" v-on:click="deleteEsttabelecimento(estabelecimento.id)">Delete</button> 
                 </td>      
               </tr>
             </tbody>
@@ -149,7 +149,16 @@
               .catch((err) => {
                 console.log(err);
               })
-          }        
+          },
+          deleteArticle: function(id) {
+            this.$http.delete(`/api/estbalecimento/${id}/`)
+              .then((response) => {
+                this.getEstbalecimentos();
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+        }        
         }  
       })
     </script>
