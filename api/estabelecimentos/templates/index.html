@@ -27,23 +27,23 @@
       <!-- vue.js files -->
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.5"></script>
-        <script type="text/javascript">
-    Vue.http.headers.common['X-CSRFToken'] = "{{ csrf_token }}";
-    new Vue({
-      el: '#starting',
-      delimiters: ['${','}'],
-      data: {
-        articles: [],
-        loading: true,
-        currentArticle: {},
-        message: null,
-        newArticle: { 'article_heading': null, 'article_body': null },
-        search_term: '',
-      },
-      mounted: function() {
-        this.getArticles();
-      },
-    }
-
+    <script type="text/javascript">
+      Vue.http.headers.common['X-CSRFToken'] = "{{ csrf_token }}";
+      new Vue({
+        el: '#starting',
+        delimiters: ['${','}'],
+        data: {
+          articles: [],
+          loading: true,
+          currentArticle: {},
+          message: null,
+          newArticle: { 'article_heading': null, 'article_body': null },
+          search_term: '',
+        },
+        mounted: function() {
+          this.getArticles();
+        },
+      }
+    </script>
   </body>
 </html>
