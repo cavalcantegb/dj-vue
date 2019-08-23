@@ -26,9 +26,14 @@
             </thead>
             <tbody>
               <tr v-for="estabelecimento in estabelecimentos">
+                
                 <td>${estabelecimento.id}</td>
                 <td>${estabelecimento.nome}</td>
-                <td>${estabelecimento.endereco}</td>         
+                <td>${estabelecimento.endereco}</td> 
+                <td>
+                  <button>Edit</button>
+                  <button>Delete</button> 
+                </td>      
               </tr>
             </tbody>
           </table>
