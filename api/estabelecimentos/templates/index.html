@@ -16,6 +16,22 @@
     <div id="starting">
       <div class="container">
         <h1>Estabelecimentos</h1>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Endereço</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="estabelecimento in estabelecimentos">
+                <td>${estabelecimento.id}</td>
+                <td>${estabelecimento.nome}</td>
+                <td>${estabelecimento.endereco}</td>         
+              </tr>
+            </tbody>
+          </table>
       </div>
     </div>
 
@@ -33,17 +49,32 @@
         el: '#starting',
         delimiters: ['${','}'],
         data: {
-          articles: [],
+          estabelecimentos: [],
           loading: true,
-          currentArticle: {},
+          atualEstabelecimento: {},
           message: null,
-          newArticle: { 'article_heading': null, 'article_body': null },
+          newArticle: { 'nome': null, 'endereco': null },
           search_term: '',
         },
         mounted: function() {
-          this.getArticles();
+          this.getEstabelecimentos();
         },
-      }
+        methods: {
+          getEstabelecimentos: function() {
+            let api_url = '/api/estabelecimento/';
+            if(this.search_term!==''||this.search_term!==null) {
+              api_url = '/api/estabelecimento/?search=${this.search_term}'
+            }
+            this.$http.get(api_url)
+                .then((response) => {
+                  this.estabelecimentos = response.data;
+                })
+                .catch((err) => {
+                  console.log(err);
+                })
+          }
+        }
+      })
     </script>
   </body>
 </html>
