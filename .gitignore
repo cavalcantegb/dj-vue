@@ -2,3 +2,5 @@ venv/
 .vscode/
 *migrations
 *.pyc
+*.sqlite3
+.env
