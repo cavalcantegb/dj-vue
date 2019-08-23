@@ -6,6 +6,6 @@ class Estabelecimento(models.Model):
     nome = models.CharField(max_length=200, null=False)
     endereco = models.CharField(max_length=200, null=False)
     complemento = models.CharField(max_length=100, null=True)
-    cnpj = models.CharField(max_lenght=20, null=False)
+    cnpj = models.CharField(max_length=20, null=False)
     telefone = models.CharField(max_length=20, null=True)
     
