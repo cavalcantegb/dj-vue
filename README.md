@@ -9,4 +9,4 @@ Após isso, o Django irá executar na sua máquina local, por definição na por
 
 Para acessar a aplicação, após o servidor está em modo de execução, digito no navegador a url
 
-> localhost:8000/estabelecimentos/
+> localhost:8000/estabelecimentos
